@@ -3,14 +3,14 @@
 
 > This tutorial is based on [Laravel 5 token based Authentication (OAuth 2.0)](https://medium.com/@mshanak/laravel-5-token-based-authentication-ae258c12cfea#.5bzflbkp9) & [Dingo Wiki](https://github.com/dingo/api/wiki).They both have some bugs and I fixed them.
 
-## 1.Install a new Laravel Project and of coures you have to set up your database.
+### 1.Install a new Laravel Project and of coures you have to set up your database.
 
 ```bash
 composer global require "laravel/installer"
 laravel new restful
 ```
 
-## 2.Modify `composer.json` and run `composer update` to include extra packages.
+### 2.Modify `composer.json` and run `composer update` to include extra packages.
 
 ```json
 
@@ -23,7 +23,7 @@ laravel new restful
 
 ```
 
-## 3.Add new providers in your `config/app.php` file.
+### 3.Add new providers in your `config/app.php` file.
 
 ```php
 
@@ -42,7 +42,7 @@ laravel new restful
 
 ```
 
-### And this lines to the aliases array:
+#### And this lines to the aliases array:
 
 ```php
 
@@ -56,7 +56,7 @@ laravel new restful
 
 ```
 
-## 4.Add new `$middleware` & `$routeMiddleware` in your `app/Http/Kernel.php` file.
+### 4.Add new `$middleware` & `$routeMiddleware` in your `app/Http/Kernel.php` file.
 
 ```php
 
@@ -76,9 +76,9 @@ laravel new restful
 
 ```
 
-## 5.Run `php artisan vendor:publish` and `php artisan migrate` in your project folder.
+### 5.Run `php artisan vendor:publish` and `php artisan migrate` in your project folder.
 
-### Add the following settings in you `.env` file:
+#### Add the following settings in you `.env` file:
 
 ```php
 
@@ -94,7 +94,7 @@ API_DEFAULT_FORMAT=json
 
 ```
 
-### Configure your `app\config\oauth2.php` like this:
+#### Configure your `app\config\oauth2.php` like this:
 
 ```php
 
@@ -112,7 +112,7 @@ API_DEFAULT_FORMAT=json
 
 ```
 
-## 6.Now is your `routes.php` file.
+### 6.Now is your `routes.php` file.
 
 ```php
 
@@ -157,7 +157,7 @@ $api->version('v1', ['middleware' => 'api.auth'] , function ($api) {
 
 ```
 
-## 7.You'll need a client to make your oauth2 server runs.
+### 7.You'll need a client to make your oauth2 server runs.
 
 In the database find the `oauth_client` s Table , insert new record to it ,or you can use the following SQL code in phpMyAdmin:
 
@@ -168,7 +168,7 @@ INSERT INTO `oauth_clients` (`id`, `secret`, `name`, `created_at`, `updated_at`)
 
 ```
 
-## 8.Edit your Api Controllers.
+### 8.Edit your Api Controllers.
 
 You can add models named Book,Post,User as you like,here is an example:
 
@@ -197,6 +197,6 @@ class UsersController extends Controller
 
 ```
 
-## 9.Test your server now!
+### 9.Test your server now!
 
 We are almost done.Now you need to test the server you've just set up.We can use tools like [PostMan](https://chrome.google.com/webstore/detail/postman-rest-client-packa/fhbjgbiflinjbdggehcddcbncdddomop) to emulate requests to your server.
